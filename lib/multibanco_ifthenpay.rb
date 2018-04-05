@@ -2,6 +2,7 @@ require 'multibanco_ifthenpay/version'
 require 'multibanco_ifthenpay/calculator'
 
 module MultibancoIfthenpay
+  # Multibanco reference generator using Ifthenpay gateway
   class Multibanco
     attr_reader :entity, :order_value
 

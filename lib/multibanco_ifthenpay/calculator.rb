@@ -1,5 +1,5 @@
 module MultibancoIfthenpay
-
+  # Multibanco reference calculation formula
   class Calculator
     CHK_ARRAY = [3, 30, 9, 90, 27, 76, 81, 34, 49, 5, 50, 15, 53, 45, 62, 38,
                  89, 17, 73, 51].freeze
