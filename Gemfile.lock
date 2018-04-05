@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    multibanco_ifthenpay (0.1.0)
+    multibanco_ifthenpay (1.0.0)
 
 GEM
   remote: https://rubygems.org/
