@@ -30,11 +30,11 @@ module MultibancoIfthenpay
     # @return [String]
     def self.get_chk_string(entity, sub_entity, order_id, order_value)
       if sub_entity.length == 1
-        # apenas serão considerados os 6 caracteres mais à direita do order_id
+        # only the 6 order_id right most digits are going to be used
         chk_str = entity + sub_entity + order_id[-6..-1] +
                   format('%08.0f', (order_value.to_f * 100))
       elsif sub_entity.length == 2
-        # apenas serão considerados os 5 caracteres mais à direita do order_id
+        # only the 5 order_id right most digits are going to be used
         chk_str = entity + sub_entity + order_id[-5..-1] +
                   format('%08.0f', (order_value.to_f * 100))
       else
