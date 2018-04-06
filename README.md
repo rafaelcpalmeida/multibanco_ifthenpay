@@ -1,5 +1,6 @@
 # Multibanco Ifthenpay Gem
 
+[![Gem Version](https://badge.fury.io/rb/multibanco_ifthenpay.png)](https://badge.fury.io/rb/multibanco_ifthenpay)
 [![Build Status](https://travis-ci.org/rafaelcpalmeida/multibanco_ifthenpay.svg?branch=master)](https://travis-ci.org/rafaelcpalmeida/multibanco_ifthenpay)
 
 Multibanco is a Portuguese payment method that allows the customer to pay by bank reference. This gem aims to provide a simple way to integrate Ifthenpay's multibanco gateway into your Ruby / Ruby on Rails projects.
