@@ -30,7 +30,7 @@ RSpec.describe MultibancoIfthenpay do
       }.to raise_error ArgumentError
     end
 
-    it 'has invalid sub entity' do
+    it 'has invalid sub-entity' do
       expect {
         MultibancoIfthenpay::Multibanco.new '99999', '', '1', 15
       }.to raise_error ArgumentError

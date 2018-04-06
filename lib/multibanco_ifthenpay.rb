@@ -12,7 +12,7 @@ module MultibancoIfthenpay
     # @param [Float] order_value
     def initialize(entity, sub_entity, order_id, order_value)
       raise ArgumentError, 'Not a valid entity' unless entity.length == 5
-      raise ArgumentError, 'Not a valid sub entity' unless
+      raise ArgumentError, 'Not a valid sub-entity' unless
           !sub_entity.empty? && sub_entity.length < 4
       raise ArgumentError, 'Not a valid order value' unless order_value >= 1
 
