@@ -10,7 +10,7 @@ module MultibancoIfthenpay
     # @param [Float] order_value
     # @return [String]
     def self.get_multibanco_reference(entity, sub_entity, order_id, order_value)
-      order_id = '0000' + order_id
+      order_id = '0000000000' + order_id
 
       order_value = format('%.2f', order_value)
 
