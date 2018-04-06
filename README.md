@@ -1,8 +1,10 @@
-# MultibancoIfthenpay
+# Multibanco Ifthenpay Gem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/multibanco_ifthenpay`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/rafaelcpalmeida/multibanco_ifthenpay.svg?branch=master)](https://travis-ci.org/rafaelcpalmeida/multibanco_ifthenpay)
 
-TODO: Delete this and the text above, and describe your gem
+Multibanco is a Portuguese payment method that allows the customer to pay by bank reference. This gem aims to provide a simple way to integrate Ifthenpay's multibanco gateway into your Ruby / Ruby on Rails projects.
+
+Ifthenpay the provider of the service and a contract with this company is required. See more at [Ifthenpay](https://ifthenpay.com). 
 
 ## Installation
 
@@ -21,8 +23,30 @@ Or install it yourself as:
     $ gem install multibanco_ifthenpay
 
 ## Usage
+After you sign a contract with [Ifthenpay](https://ifthenpay.com) all you have to do is create a new object using the provided entity and sub-entity, an order id and it's value.
 
-TODO: Write usage instructions here
+You can use the code as the example below:
+
+```ruby
+#!/usr/bin/ruby
+
+require 'multibanco_ifthenpay'
+
+multibanco = MultibancoIfthenpay::Multibanco.new('99999', '999', '1', 15)
+
+puts "Entity: #{multibanco.entity}"
+# Prettify parameter is optional. If you set it as false or omit it, it won't place a blank space between each 3 characters.
+puts "Sub-entity: #{multibanco.print_multibanco_reference(prettify: true)}"
+puts "Value: #{multibanco.order_value}€"
+```
+
+The result for the code above is:
+
+```
+Entity: 99999
+Sub-entity: 999 000 139
+Value: 15€
+```
 
 ## Development
 
@@ -32,7 +56,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/multibanco_ifthenpay. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/rafaelcpalmeida/multibanco_ifthenpay. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +64,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the MultibancoIfthenpay project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/multibanco_ifthenpay/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the MultibancoIfthenpay project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rafaelcpalmeida/multibanco_ifthenpay/blob/master/CODE_OF_CONDUCT.md).

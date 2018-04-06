@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Rafael Almeida"]
   spec.email         = ["rafaelcpalmeida@protonmail.com"]
 
-  spec.summary       = ""
-  spec.description   = ""
+  spec.summary       = "This gem aims to provide a simple way to integrate Ifthenpay's multibanco gateway into your Ruby / Ruby on Rails projects."
+  spec.description   = "Multibanco is a Portuguese payment method that allows the customer to pay by bank reference. This gem aims to provide a simple way to integrate Ifthenpay's multibanco gateway into your Ruby / Ruby on Rails projects."
   spec.homepage      = "https://github.com/rafaelcpalmeida/multibanco_ifthenpay"
   spec.license       = "MIT"
 
