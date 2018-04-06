@@ -21,26 +21,24 @@ module MultibancoIfthenpay
       chk_str[5, 3] + chk_str[8, 3] + chk_str[11, 1] + chk_digits
     end
 
-
-
     # @param [String] entity
     # @param [String] sub_entity
     # @param [String] order_id
     # @param [Float] order_value
     # @return [String]
     def self.get_chk_string(entity, sub_entity, order_id, order_value)
-      if sub_entity.length == 1
-        # only the 6 order_id right most digits are going to be used
-        chk_str = entity + sub_entity + order_id[-6..-1] +
-                  format('%08.0f', (order_value.to_f * 100))
-      elsif sub_entity.length == 2
-        # only the 5 order_id right most digits are going to be used
-        chk_str = entity + sub_entity + order_id[-5..-1] +
-                  format('%08.0f', (order_value.to_f * 100))
-      else
-        chk_str = entity + sub_entity + order_id[-4..-1] +
-                  format('%08.0f', (order_value.to_f * 100))
-      end
+      chk_str = if sub_entity.length == 1
+                  # only the 6 order_id right most digits are going to be used
+                  entity + sub_entity + order_id[-6..-1] +
+                    format('%08.0f', (order_value.to_f * 100))
+                elsif sub_entity.length == 2
+                  # only the 5 order_id right most digits are going to be used
+                  entity + sub_entity + order_id[-5..-1] +
+                    format('%08.0f', (order_value.to_f * 100))
+                else
+                  entity + sub_entity + order_id[-4..-1] +
+                    format('%08.0f', (order_value.to_f * 100))
+                end
 
       chk_str
     end
