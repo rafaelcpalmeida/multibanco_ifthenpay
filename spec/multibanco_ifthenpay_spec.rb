@@ -15,10 +15,24 @@ RSpec.describe MultibancoIfthenpay do
       expect(mb_instance.print_multibanco_reference(prettify: true)).to eq('999 000 139')
     end
 
-    it 'returns correct data' do
+    it 'returns correct data with 3 digits sub-entity' do
       mb_instance = MultibancoIfthenpay::Multibanco.new '99999', '999', '1', 15.4
       expect(mb_instance.entity).to eq('99999')
       expect(mb_instance.print_multibanco_reference).to eq('999000116')
+      expect(mb_instance.order_value).to eq(15.4)
+    end
+
+    it 'returns correct data with 2 digits sub-entity' do
+      mb_instance = MultibancoIfthenpay::Multibanco.new '99999', '99', '1', 15.4
+      expect(mb_instance.entity).to eq('99999')
+      expect(mb_instance.print_multibanco_reference).to eq('990000108')
+      expect(mb_instance.order_value).to eq(15.4)
+    end
+
+    it 'returns correct data with 1 digit sub-entity' do
+      mb_instance = MultibancoIfthenpay::Multibanco.new '99999', '9', '1', 15.4
+      expect(mb_instance.entity).to eq('99999')
+      expect(mb_instance.print_multibanco_reference).to eq('900000125')
       expect(mb_instance.order_value).to eq(15.4)
     end
   end
