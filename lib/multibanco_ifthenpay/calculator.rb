@@ -27,20 +27,8 @@ module MultibancoIfthenpay
     # @param [Float] order_value
     # @return [String]
     def self.get_chk_string(entity, sub_entity, order_id, order_value)
-      chk_str = if sub_entity.length == 1
-                  # only the 6 order_id right most digits are going to be used
-                  entity + sub_entity + order_id[-6..-1] +
-                    format('%08.0f', (order_value.to_f * 100))
-                elsif sub_entity.length == 2
-                  # only the 5 order_id right most digits are going to be used
-                  entity + sub_entity + order_id[-5..-1] +
-                    format('%08.0f', (order_value.to_f * 100))
-                else
-                  entity + sub_entity + order_id[-4..-1] +
-                    format('%08.0f', (order_value.to_f * 100))
-                end
-
-      chk_str
+      entity + sub_entity + order_id[-(7 - sub_entity.length)..-1] +
+        format('%08.0f', (order_value.to_f * 100))
     end
 
     # @param [String] chk_str
