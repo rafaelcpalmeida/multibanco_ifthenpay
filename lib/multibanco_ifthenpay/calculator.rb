@@ -46,13 +46,8 @@ module MultibancoIfthenpay
     # @param [String] chk_str
     # @return [String]
     def self.get_chk_digits(chk_str)
-      chk_val = 0
-
-      chk_array_size = CHK_ARRAY.length
-
-      CHK_ARRAY.each do |chk_item|
-        chk_val += (chk_str[chk_array_size - 1].to_i % 10) * chk_item
-        chk_array_size -= 1
+      chk_val = CHK_ARRAY.each_with_index.reduce(0) do |val, (chk_item, index)|
+        val + (chk_str[CHK_ARRAY.length - index -1].to_i % 10) * chk_item
       end
 
       chk_val %= 97
