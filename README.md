@@ -25,6 +25,17 @@ Or install it yourself as:
 
     $ gem install multibanco_ifthenpay
 
+## Building
+Execute the following
+```ruby
+gem build multibanco_ifthenpay.gemspec
+```
+
+After the gem is successfully built, you can install it using
+```ruby
+gem install ./multibanco_ifthenpay-1.1.2.gem
+```
+
 ## Usage
 After you sign a contract with [Ifthenpay](https://ifthenpay.com) all you have to do is create a new object using the provided entity and sub-entity, an order id and it's value.
 
